@@ -50,7 +50,7 @@ public class TerrainMap : MonoBehaviour
     {
         if (Water)
         {
-            Water.transform.position = new Vector3(TotalSize / 2 - 0.5f, 2, TotalSize / 2 - 0.5f);
+            Water.transform.position = new Vector3(TotalSize / 2 - 0.5f, 4.7f, TotalSize / 2 - 0.5f);
             Water.transform.localScale = new Vector3(TotalSize - 1, 10, TotalSize - 1);
         }
     }
