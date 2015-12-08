@@ -58,13 +58,17 @@ public class TerrainMap : MonoBehaviour
     public void GenerateHeightMap()
     {
         var perlin = new LibNoise.Unity.Generator.Perlin(Frequency, Lacunarity, Persistence, Octaves, Seed, LibNoise.Unity.QualityMode.High);
-        //var ridged = new LibNoise.Unity.Generator.RidgedMultifractal(Frequency, Lacunarity, Octaves, Seed, LibNoise.Unity.QualityMode.High);
+        //var ridged = new LibNoise.Unity.Generator.RidgedMultifractal(Frequency, Lacunarity, Octaves, Seed, LibNoise.Unity.QualityMode.Medium);
         //var turb = new LibNoise.Unity.Operator.Turbulence(0.25, perlin);
+        //var layered = new LibNoise.Unity.Operator.Multiply(perlin, ridged);
+        //var 
         var scaled = new LibNoise.Unity.Operator.ScaleBias(Scaling, ScaleBias, perlin);
         var final = new LibNoise.Unity.Operator.Terrace(false, scaled);
 
-        for (int i = 0; i < 40; i += 10)
-            final.Add(i);
+        //for (float  i = 0; i < 50; i += 10)
+        final.Add(0f);
+        final.Add(10f);
+        final.Add(100f);
 
         var noise = new LibNoise.Unity.Noise2D(TotalSize, final);
         noise.GeneratePlanar(ClipX, ClipX + (ClipSize * ChunksPerSide), ClipY, ClipY + (ClipSize * ChunksPerSide));
