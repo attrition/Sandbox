@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections.Generic;
 
-public class TerrainMap : MonoBehaviour
+public class TerrainMap : NetworkBehaviour
 {
+    [SyncVar]
     public int Seed = 1337;
+
     public float ClipX = 0f;
     public float ClipY = 0f;
     public float ClipSize = 1f;
@@ -151,6 +154,7 @@ public class TerrainMap : MonoBehaviour
                 var rend = go.AddComponent<MeshRenderer>();
                 var filt = go.AddComponent<MeshFilter>();
                 var coll = go.AddComponent<MeshCollider>();
+                var neti = go.AddComponent<NetworkIdentity>();
 
                 GameObject.Destroy(rend.material);
                 rend.material = Material;

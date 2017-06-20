@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public class Game : MonoBehaviour
+using UnityEngine;
+using UnityEngine.Networking;
+
+public class Game : NetworkBehaviour
 {
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
     }
 
